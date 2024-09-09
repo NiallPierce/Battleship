@@ -17,7 +17,7 @@ class Ship:
             for i in range(self.size):
                 self.coordinates.append((row + i, col)) # Add each coordinate downwards
 
-# GameState class to manage the state of the game
+# GameState class to manage the state of the game (player's turn, game over status, and ships)
 class GameState:
     def __init__(self):
         self.player_turn = True # Boolean to track if it's the player's turn
@@ -25,11 +25,11 @@ class GameState:
         self.player_ships = []  # List to hold player's ships
         self.ai_ships = []      # List to hold AI's ships
 
-# Function to create a 10x10 grid for the game, filled with "路" (empty water)
+# Function to create a 10x10 grid for the game, filled with "-" (empty water)
 def create_grid():
-    return [["-"] * 10 for _ in range(10)]
+    return [["路"] * 10 for _ in range(10)]
 
-# Function to print the game grid. Optionally, hide the ships by displaying "路" instead of "S"
+# Function to print the game grid. Optionally, hide the ships by displaying "-" instead of "S"
 def print_grid(grid, hide_ships=False):
     print("  1 2 3 4 5 6 7 8 9 10")  # Print column numbers
     for i, row in enumerate(grid):
@@ -40,3 +40,21 @@ def print_grid(grid, hide_ships=False):
             else:
                 print(cell, end=" ")
         print()
+
+# Function to check if a ship can be placed on the grid at the given position with the given orientation
+def is_valid_placement(grid, ship, row, col, orientation):
+    # Check if the ship goes out of bounds horizontally or vertically
+    if orientation == 'H' and col + ship.size > 10:
+        return False
+    if orientation == 'V' and row + ship.size > 10:
+        return False
+    
+    # Check if the ship overlaps with another ship on the grid
+    for i in range(ship.size):
+        if orientation == 'H':  # For horizontal placement
+            if grid[row][col + i] != "-":
+                return False
+        elif orientation == 'V':  # For vertical placement
+            if grid[row + i][col] != "-":
+                return False
+    return True  # Placement is valid
