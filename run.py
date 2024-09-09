@@ -27,7 +27,7 @@ class GameState:
 
 # Function to create a 10x10 grid for the game, filled with "-" (empty water)
 def create_grid():
-    return [["路"] * 10 for _ in range(10)]
+    return [["-"] * 10 for _ in range(10)]
 
 # Function to print the game grid. Optionally, hide the ships by displaying "-" instead of "S"
 def print_grid(grid, hide_ships=False):
@@ -58,3 +58,16 @@ def is_valid_placement(grid, ship, row, col, orientation):
             if grid[row + i][col] != "-":
                 return False
     return True  # Placement is valid
+
+    # Function for AI to randomly place its ships on the grid
+def place_ai_ships(grid, ships):
+    for ship in ships:
+        while True:  # Repeat until a valid placement is found
+            row = random.randint(0, 9)  # Random row (0-9)
+            col = random.randint(0, 9)  # Random column (0-9)
+            orientation = random.choice(['H', 'V'])  # Random orientation (horizontal or vertical)
+            if is_valid_placement(grid, ship, row, col, orientation):
+                ship.place_ship(grid, row, col, orientation)  # Place the ship on the grid
+                for coord in ship.coordinates:
+                    grid[coord[0]][coord[1]] = "S"  # Mark the ship's location on the grid
+                break  # Exit loop when a valid placement is done
