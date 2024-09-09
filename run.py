@@ -71,3 +71,38 @@ def place_ai_ships(grid, ships):
                 for coord in ship.coordinates:
                     grid[coord[0]][coord[1]] = "S"  # Mark the ship's location on the grid
                 break  # Exit loop when a valid placement is done
+
+# Function to handle the player's turn
+def player_turn(grid, ships):
+    while True:  # Loop until the player makes a valid move
+        try:
+            move = input("Enter your move (e.g., A5): ").upper()  # Ask for the player's move
+            row = ord(move[0]) - 65  # Convert letter (A-J) to row index
+            col = int(move[1:]) - 1  # Convert number (1-10) to column index
+            # Check if the move is out of bounds or already guessed
+            if row < 0 or row > 9 or col < 0 or col > 9:
+                raise ValueError
+            if grid[row][col] in ["X", "M"]:
+                print("You already guessed that one. Try again.")
+                continue
+            break
+        except (ValueError, IndexError):  # Catch invalid input
+            print("Invalid input. Please enter a letter (A-J) followed by a number (1-10).")
+
+    # Check if the player's move hits any AI ship
+    hit = False
+    for ship in ships:
+        if (row, col) in ship.coordinates:
+            grid[row][col] = "X"  # Mark a hit on the grid
+            ship.hits += 1  # Increment the ship's hit count
+            hit = True
+            if ship.hits == ship.size:  # Check if the ship is sunk
+                print(f"You sunk AI's {ship.size}-unit ship!")
+            else:
+                print("Hit!")
+            break
+    if not hit:  # If no hit, mark a miss
+        grid[row][col] = "M"
+        print("Miss!")
+
+    return hit  # Return whether the move was a hit or not
