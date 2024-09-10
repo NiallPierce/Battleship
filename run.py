@@ -106,3 +106,7 @@ def player_turn(grid, ships):
         print("Miss!")
 
     return hit  # Return whether the move was a hit or not
+
+    # Function to check if all ships in the list are sunk (game over condition)
+def check_game_over(ships):
+    return all(ship.hits == ship.size for ship in ships)
