@@ -59,7 +59,7 @@ def is_valid_placement(grid, ship, row, col, orientation):
                 return False
     return True  # Placement is valid
 
-    # Function for AI to randomly place its ships on the grid
+# Function for AI to randomly place its ships on the grid
 def place_ai_ships(grid, ships):
     for ship in ships:
         while True:  # Repeat until a valid placement is found
@@ -107,7 +107,33 @@ def player_turn(grid, ships):
 
     return hit  # Return whether the move was a hit or not
 
-    # Function to check if all ships in the list are sunk (game over condition)
+# Function to handle the AI's turn
+def ai_turn(grid, ships):
+    while True:  # AI randomly chooses a move
+        row = random.randint(0, 9)
+        col = random.randint(0, 9)
+        if grid[row][col] not in ["X", "M"]:  # Ensure the move hasn't been guessed before
+            break
+
+    # Check if the AI's move hits any player's ship
+    hit = False
+    for ship in ships:
+        if (row, col) in ship.coordinates:
+            grid[row][col] = "X"  # Mark a hit on the grid
+            ship.hits += 1  # Increment the ship's hit count
+            hit = True
+            if ship.hits == ship.size:  # Check if the ship is sunk
+                print(f"AI sunk your {ship.size}-unit ship!")
+            else:
+                print("AI Hit!")
+            break
+    if not hit:  # If no hit, mark a miss
+        grid[row][col] = "M"
+        print("AI Miss!")
+
+    return hit  # Return whether the move was a hit or not
+
+# Function to check if all ships in the list are sunk (game over condition)
 def check_game_over(ships):
     return all(ship.hits == ship.size for ship in ships)
 
@@ -141,12 +167,12 @@ def play_battleships():
     player_grid = create_grid()
     ai_grid = create_grid()
     game_state = GameState()  # Initialize game state
-
-# Create player's and AI's ships with different sizes
+    
+    # Create player's and AI's ships with different sizes
     game_state.player_ships = [Ship(3), Ship(4), Ship(5)]
     game_state.ai_ships = [Ship(3), Ship(4), Ship(5)]
 
-# Game setup: placing player's and AI's ships
+    # Game setup: placing player's and AI's ships
     print("Welcome to Battleships!")
     print("Place your ships:")
     place_player_ships(player_grid, game_state.player_ships)
