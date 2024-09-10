@@ -110,3 +110,27 @@ def player_turn(grid, ships):
     # Function to check if all ships in the list are sunk (game over condition)
 def check_game_over(ships):
     return all(ship.hits == ship.size for ship in ships)
+
+# Function to place player's ships manually by asking for input
+def place_player_ships(grid, ships):
+    for ship in ships:
+        while True:  # Repeat until a valid placement is found
+            print_grid(grid)  # Show current grid
+            print(f"Placing {ship.size}-unit ship")
+            try:
+                # Ask for the starting position and orientation of the ship
+                location = input("Enter the starting position (e.g., A5): ").upper()
+                row = ord(location[0]) - 65
+                col = int(location[1:]) - 1
+                orientation = input("Enter orientation (H for horizontal, V for vertical): ").upper()
+                if orientation not in ['H', 'V']:
+                    raise ValueError
+                if is_valid_placement(grid, ship, row, col, orientation):  # Validate placement
+                    ship.place_ship(grid, row, col, orientation)  # Place ship on the grid
+                    for coord in ship.coordinates:
+                        grid[coord[0]][coord[1]] = "S"  # Mark ship's position
+                    break
+                else:
+                    print("Invalid placement. Try again.")
+            except (ValueError, IndexError):  # Handle invalid input
+                print("Invalid input. Please enter a letter (A-J) followed by a number (1-10), and H or V for orientation.")
