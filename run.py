@@ -142,3 +142,6 @@ def play_battleships():
     ai_grid = create_grid()
     game_state = GameState()  # Initialize game state
 
+# Create player's and AI's ships with different sizes
+    game_state.player_ships = [Ship(3), Ship(4), Ship(5)]
+    game_state.ai_ships = [Ship(3), Ship(4), Ship(5)]
