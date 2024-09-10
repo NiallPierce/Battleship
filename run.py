@@ -145,3 +145,14 @@ def play_battleships():
 # Create player's and AI's ships with different sizes
     game_state.player_ships = [Ship(3), Ship(4), Ship(5)]
     game_state.ai_ships = [Ship(3), Ship(4), Ship(5)]
+
+# Game setup: placing player's and AI's ships
+    print("Welcome to Battleships!")
+    print("Place your ships:")
+    place_player_ships(player_grid, game_state.player_ships)
+    place_ai_ships(ai_grid, game_state.ai_ships)
+
+    # Game loop: alternating between player's and AI's turns until game over
+    while not game_state.game_over:
+        print("\nYour board:")
+        print_grid(player_grid)  # Show player's
