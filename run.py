@@ -182,3 +182,6 @@ def play_battleships():
     while not game_state.game_over:
         print("\nYour board:")
         print_grid(player_grid)  # Show player's
+
+print("Play Battleships!")
+play_battleships()
