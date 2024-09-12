@@ -2,6 +2,8 @@
 
 This is my take on the classic Battleships game. Placing your ships on a 10x10 grid and taking turns against the AI to see who can sink the other players ship by guessing their locations faster.
 
+![Am I responsive](views/media/battleship-responsive.png)
+
 ## How to Play
 1. **Setup**: 
    - You and the AI will place ships on separate 10x10 grids.
@@ -83,5 +85,5 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 |                   | Out-of-bounds placement for ships (e.g., too large for the grid) | Game should prevent ship placement and display an error               | Pass          |
 
 ## Bugs
-1. **Infinite Looping**: When finished placing ships the game would start infinitly loading, 
+1. **Infinite Looping**: When finished placing ships the game would start infinitly loading a new board. added player/ai logic and game state checks to fix this.
 
