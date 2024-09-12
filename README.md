@@ -20,3 +20,12 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
    - The game ends when all ships of either the player or the AI are sunk.
    - The first player to sink all the enemy ships wins.
 
+## Features
+
+### Existing Features:
+- **10x10 Grids**: Both the player and AI use grids for ship placement and attacks.
+- **Manual Ship Placement**: The player can choose where to place ships and their orientation.
+- **AI Ship Placement**: The AI randomly places its ships on the grid, ensuring no overlap or out-of-bounds ships.
+- **Turn-Based Attacks**: Each turn, the player and AI take turns guessing a location to attack.
+- **Hit/Miss Feedback**: The game informs the player whether they hit, missed, or sunk an enemy ship.
+- **Game Over Detection**: The game automatically detects when all ships on one side have been sunk.
