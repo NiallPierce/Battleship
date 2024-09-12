@@ -1,6 +1,6 @@
 # Battleships Game
 
-This is my take on the classic Battleships game. Placing your ships on a 10x10 grid a taking turns against the AI to see how can sink the other players ship by guessing their locations faster.
+This is my take on the classic Battleships game. Placing your ships on a 10x10 grid and taking turns against the AI to see who can sink the other players ship by guessing their locations faster.
 
 ## How to Play
 1. **Setup**: 
@@ -29,3 +29,10 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 - **Turn-Based Attacks**: Each turn, the player and AI take turns guessing a location to attack.
 - **Hit/Miss Feedback**: The game informs the player whether they hit, missed, or sunk an enemy ship.
 - **Game Over Detection**: The game automatically detects when all ships on one side have been sunk.
+
+### Future Features:
+- **Ship Randomization Option**: Allow players to randomize ship placement if they prefer not to place manually.
+- **Difficulty Levels**: Add AI difficulty settings (e.g., easy, medium, hard) for smarter move strategies.
+- **Multiplayer Mode**: Implement an option for two players to play against each other.
+- **Replay Option**: Add a feature to restart the game after a match is over without exiting the program.
+- **Visual Effects**: Incorporate animations or enhanced visuals to show hits, misses, and sunk ships.
