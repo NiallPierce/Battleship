@@ -45,3 +45,8 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
    - `hits`: Tracks how many times the ship has been hit.
    - `coordinates`: Stores the ship's position on the grid.
    
+2. **GameState**: 
+   - `player_turn`: A boolean flag to track if it is the player’s turn.
+   - `game_over`: A boolean flag to indicate if the game is over.
+   - `player_ships`: A list of the player's ships.
+   - `ai_ships`: A list of the AI’s ships.
