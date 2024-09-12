@@ -36,3 +36,12 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 - **Multiplayer Mode**: Implement an option for two players to play against each other.
 - **Replay Option**: Add a feature to restart the game after a match is over without exiting the program.
 - **Visual Effects**: Incorporate animations or enhanced visuals to show hits, misses, and sunk ships.
+
+## Data Model
+
+### Classes:
+1. **Ship**: 
+   - `size`: The length of the ship (e.g., 3, 4, or 5 units).
+   - `hits`: Tracks how many times the ship has been hit.
+   - `coordinates`: Stores the ship's position on the grid.
+   
