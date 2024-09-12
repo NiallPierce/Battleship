@@ -81,3 +81,7 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 | **Edge Cases**    | Invalid coordinates input (e.g., Z5)                  | Game should display an error message and ask for valid input           | Pass          |
 |                   | Repeated move (e.g., A1 after already selecting it)   | Game should display a message saying the move was already made        | Pass          |
 |                   | Out-of-bounds placement for ships (e.g., too large for the grid) | Game should prevent ship placement and display an error               | Pass          |
+
+## Bugs
+1. **Infinite Looping**: When finished placing ships the game would start infinitly loading, 
+

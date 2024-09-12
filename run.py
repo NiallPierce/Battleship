@@ -161,14 +161,14 @@ def place_player_ships(grid, ships):
             except (ValueError, IndexError):  # Handle invalid input
                 print("Invalid input. Please enter a letter (A-J) followed by a number (1-10), and H or V for orientation.")
 
-# Main function to play the Battleship game
+#Main function to play the Battleship game
 def play_battleships():
     # Create grids for the player and the AI
     player_grid = create_grid()
     ai_grid = create_grid()
     game_state = GameState()  # Initialize game state
-    
-    # Create player's and AI's ships with different sizes
+
+#Create player's and AI's ships with different sizes
     game_state.player_ships = [Ship(3), Ship(4), Ship(5)]
     game_state.ai_ships = [Ship(3), Ship(4), Ship(5)]
 
@@ -181,7 +181,26 @@ def play_battleships():
     # Game loop: alternating between player's and AI's turns until game over
     while not game_state.game_over:
         print("\nYour board:")
-        print_grid(player_grid)  # Show player's
+        print_grid(player_grid)  # Show player's grid
+        print("\nAI's board:")
+        print_grid(ai_grid, hide_ships=True)  # Show AI's grid with ships hidden
+
+        if game_state.player_turn:
+            print("Your turn!")
+            player_turn(ai_grid, game_state.ai_ships)  # Player's turn
+            game_state.player_turn = False  # Switch to AI's turn
+        else:
+            print("AI's turn!")
+            ai_turn(player_grid, game_state.player_ships)  # AI's turn
+            game_state.player_turn = True  # Switch to player's turn
+
+        # Check if the game is over
+        if check_game_over(game_state.player_ships):
+            print("AI wins!")
+            game_state.game_over = True
+        elif check_game_over(game_state.ai_ships):
+            print("You win!")
+            game_state.game_over = True
 
 print("Play Battleships!")
 play_battleships()
