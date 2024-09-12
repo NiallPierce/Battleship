@@ -2,6 +2,8 @@
 
 This is my take on the classic Battleships game. Placing your ships on a 10x10 grid and taking turns against the AI to see who can sink the other players ship by guessing their locations faster.
 
+The live link can be found here - https://niall-battle-ships-67a649243d8a.herokuapp.com/
+
 ![Am I responsive](views/media/battleship-responsive.png)
 
 ## How to Play
@@ -90,5 +92,30 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 |                   | Out-of-bounds placement for ships (e.g., too large for the grid) | Game should prevent ship placement and display an error               | Pass          |
 
 ## Bugs
+
+### Solved Bugs
 1. **Infinite Looping**: When finished placing ships the game would start infinitly loading a new board. added player/ai logic and game state checks to fix this.
+2. **Linter Error** Issues with lines longer that 79 spaces and blank spaces. Able to fix using CI Python Linter.
+
+### Remaining Bugs
+- There are currently no remaining bugs.
+
+### Validator Testing
+- PEP8 No errors showing.
+
+## Deployment
+
+The following steps were taken to deploy the game.
+- Create a new Heroku App
+- Set the build packs to Python and Node.js in that order
+- Link the Heroku App to the repository
+- Click deploy
+
+## Credits
+- Code Institutes Love Sandwiches project for set up and revision on functions.
+- W3 schools for tips and general enquires.
+- Code Institute for Heroku app and set up guide
+
+
+
 
