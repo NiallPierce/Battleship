@@ -94,7 +94,7 @@ The live link can be found here - https://niall-battle-ships-67a649243d8a.heroku
 ## Bugs
 
 ### Solved Bugs
-1. **Infinite Looping**: When finished placing ships the game would start infinitly loading a new board. added player/ai logic and game state checks to fix this.
+1. **Infinite Looping**: When finished placing ships the game would start infinitly loading a new board. Added player/ai logic and game state checks to fix this.
 2. **Linter Error** Issues with lines longer that 79 spaces and blank spaces. Able to fix using CI Python Linter.
 
 ### Remaining Bugs
