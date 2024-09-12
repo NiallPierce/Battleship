@@ -26,10 +26,14 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 
 ### Existing Features:
 - **10x10 Grids**: Both the player and AI use grids for ship placement and attacks.
+![10x10 Grid](views/media/grid.png)
 - **Manual Ship Placement**: The player can choose where to place ships and their orientation.
+![Placing](views/media/placing.png)
 - **AI Ship Placement**: The AI randomly places its ships on the grid, ensuring no overlap or out-of-bounds ships.
 - **Turn-Based Attacks**: Each turn, the player and AI take turns guessing a location to attack.
+![Attack](views/media/attack.png)
 - **Hit/Miss Feedback**: The game informs the player whether they hit, missed, or sunk an enemy ship.
+![Hit or Miss](views/media/hitmiss.png)
 - **Game Over Detection**: The game automatically detects when all ships on one side have been sunk.
 
 ### Future Features:
