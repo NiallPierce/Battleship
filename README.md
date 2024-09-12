@@ -50,3 +50,15 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
    - `game_over`: A boolean flag to indicate if the game is over.
    - `player_ships`: A list of the player's ships.
    - `ai_ships`: A list of the AI’s ships.
+
+### Functions:
+- **`create_grid()`**: Creates a 10x10 game grid represented as a 2D list.
+- **`print_grid(grid, hide_ships=False)`**: Displays the grid, optionally hiding the positions of ships.
+- **`is_valid_placement(grid, ship, row, col, orientation)`**: Checks whether a ship can be placed at the specified coordinates and orientation.
+- **`place_ship(ship, row, col, orientation)`**: Places the ship at the specified position on the grid.
+- **`place_player_ships(grid, ships)`**: Allows the player to manually place ships on their grid.
+- **`place_ai_ships(grid, ships)`**: Randomly places the AI’s ships on the grid.
+- **`player_turn(grid, ships)`**: Handles the player's turn by prompting for a move and checking if it’s a hit or miss.
+- **`ai_turn(grid, ships)`**: The AI randomly selects a target on the player’s grid to attack.
+- **`check_game_over(ships)`**: Checks if all ships of a player or AI have been sunk, signaling the end of the game.
+
