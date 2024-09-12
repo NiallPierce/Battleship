@@ -15,3 +15,8 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
    - The game will notify you if it's a **hit** (successful attack) or a **miss**.
    - If all segments of a ship are hit, the ship is sunk.
    - The AI also takes turns trying to sink your ships.
+
+3. **Winning the Game**:
+   - The game ends when all ships of either the player or the AI are sunk.
+   - The first player to sink all the enemy ships wins.
+
