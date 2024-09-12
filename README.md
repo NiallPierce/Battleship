@@ -35,6 +35,7 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 - **Hit/Miss Feedback**: The game informs the player whether they hit, missed, or sunk an enemy ship.
 ![Hit or Miss](views/media/hitmiss.png)
 - **Game Over Detection**: The game automatically detects when all ships on one side have been sunk.
+![Game Over](views/media/win.png)
 
 ### Future Features:
 - **Ship Randomization Option**: Allow players to randomize ship placement if they prefer not to place manually.
