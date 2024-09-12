@@ -62,3 +62,22 @@ This is my take on the classic Battleships game. Placing your ships on a 10x10 g
 - **`ai_turn(grid, ships)`**: The AI randomly selects a target on the player’s grid to attack.
 - **`check_game_over(ships)`**: Checks if all ships of a player or AI have been sunk, signaling the end of the game.
 
+## Testing:
+
+
+| **Test Category**  | **Test Case**                                        | **Expected Result**                                                   | **Pass/Fail** |
+|-------------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------|
+| **Functional Tests** | Player can place ships without overlap               | Ships should be placed correctly without overlapping on the grid       | Pass          |
+|                   | Player can place ships within grid boundaries         | Ships should not exceed the grid boundaries (both horizontal and vertical) | Pass          |
+|                   | Player receives feedback for a hit                    | When a player hits a ship, the cell should be marked as "X" and a hit message should appear | Pass          |
+|                   | Player receives feedback for a miss                   | When a player misses, the cell should be marked as "M" and a miss message should appear | Pass          |
+|                   | Player receives feedback for sinking a ship           | When all parts of a ship are hit, a message indicating the ship has sunk should appear | Pass          |
+|                   | Ships are correctly marked as "S" on the grid         | Ships should be visible on the player's grid and hidden on the AI's grid (unless configured otherwise) | Pass          |
+| **AI Testing**    | AI places ships without overlap                       | AI ships should not overlap each other                                | Pass          |
+|                   | AI places ships within grid boundaries                | AI ships should not exceed the grid boundaries                        | Pass          |
+|                   | AI makes valid moves                                  | AI should not target the same location twice and should target valid grid cells | Pass          |
+| **Game Flow**     | Player and AI turns alternate correctly               | The game should alternate between the player's turn and AI's turn     | Pass          |
+|                   | Player can’t make a move during AI’s turn             | During the AI's turn, the player should be unable to make a move      | Pass          |
+| **Edge Cases**    | Invalid coordinates input (e.g., Z5)                  | Game should display an error message and ask for valid input           | Pass          |
+|                   | Repeated move (e.g., A1 after already selecting it)   | Game should display a message saying the move was already made        | Pass          |
+|                   | Out-of-bounds placement for ships (e.g., too large for the grid) | Game should prevent ship placement and display an error               | Pass          |
